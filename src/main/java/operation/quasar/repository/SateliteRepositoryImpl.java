@@ -26,7 +26,6 @@ public class SateliteRepositoryImpl implements SateliteRepository {
 
         Long id = 1L;
         String nombre = "Kenobi";
-//        Float distancia = 100.0F;
         Coordenada coordenada = new Coordenada(-500.0F, -200.0F);
         Satelite satelite = new Satelite(id, nombre, null, null, coordenada);
 
@@ -37,7 +36,6 @@ public class SateliteRepositoryImpl implements SateliteRepository {
 
         Long id = 2L;
         String nombre = "Sato";
-//        Float distancia = 142.7F;
         Coordenada coordenada = new Coordenada(500.0F, 100.0F);
         Satelite satelite = new Satelite(id, nombre, null, null, coordenada);
 
@@ -49,7 +47,6 @@ public class SateliteRepositoryImpl implements SateliteRepository {
 
         Long id = 3L;
         String nombre = "Skywalker";
-//        Float distancia = 115.5F;
         Coordenada coordenada = new Coordenada(100F, -100F);
         Satelite satelite = new Satelite(id, nombre, null, null, coordenada);
 

@@ -24,16 +24,9 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
             final WebRequest request) {
         logger.info(ex.getClass().getName());
 
-        final Error error =
-                new Error("No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL());
+        final Error error = new Error("No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL());
 
-        final ApiError apiError =
-                new ApiError(
-
-                        "404",
-                        HttpStatus.NOT_FOUND,
-                        "errorrrr"
-                );
+        final ApiError apiError = new ApiError("404", HttpStatus.NOT_FOUND, error.getMessage());
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
@@ -42,18 +35,10 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     protected ResponseEntity<Object> handleAll(final Exception ex, final WebRequest request) {
         logger.info(ex.getClass().getName());
         logger.error("error", ex);
+        final Error error = new Error("No handler found for " + ex.getMessage());
 
 
-        final Error error =
-                new Error("No handler found for " + ex.getMessage());
-
-
-        final ApiError apiError =
-                new ApiError(
-                        "500",
-                        HttpStatus.INTERNAL_SERVER_ERROR,
-                        "no hay suficiente información"
-                );
+        final ApiError apiError = new ApiError("500", HttpStatus.INTERNAL_SERVER_ERROR, "no hay suficiente información");
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
@@ -72,13 +57,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
         ex.getSupportedMediaTypes().forEach(t -> builder.append(t + " "));
 
 
-        final ApiError apiError =
-                new ApiError(
-
-                        "404",
-                        HttpStatus.NOT_FOUND,
-                        "errorrrr"
-                );
+        final ApiError apiError = new ApiError("404", HttpStatus.NOT_FOUND, builder.toString());
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 

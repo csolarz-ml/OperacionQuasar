@@ -39,11 +39,14 @@ public class SateliteServiceImpl implements SateliteService {
     public Coordenada getLocation(List<Float> distancias) {
         LOGGER.info("getLocation recibe: " + distancias.toString());
 
+        //setea las  distancias a los satelites
         for (int i = 0; i < sateliteRepository.getAllSatellite().size(); i++) {
             sateliteRepository.getAllSatellite().get(i).setDistance(distancias.get(i));
         }
         return this.getUbicacion(sateliteRepository.getAllSatellite());
     }
+
+    /**Metodo de trilaterazion que se utiliza para ubicar un punto entre 3 satelites **/
 
     @Override
     public Coordenada getUbicacion(List<Satelite> lista) {
@@ -91,12 +94,10 @@ public class SateliteServiceImpl implements SateliteService {
             satelite = sateliteRepository.getSateliteByName(s.getName());
             satelite.setDistance(s.getDistance());
             satelite.GetMessage(s.getMessage());
-
-//            sateliteRepository.update(satelite);
-//            LOGGER.info(satelite.GetLocation(s.getDistance()).toString());
-//            LOGGER.info(satelite.GetMessage(s.getMessage()));
         }
     }
+
+    /** TODO SE PODRIA MEJORAR para que no se rompa en los indices**/
 
     @Override
     public String getMensajeSatelites(List<Satelite> lista) {
@@ -121,6 +122,7 @@ public class SateliteServiceImpl implements SateliteService {
         sateliteRepository.update(satelite);
     }
 
+    /** TODO SE PODRIA MEJORAR**/
     private StringBuilder armarMensaje(String s, String s1, String s2, StringBuilder mensaje) {
 
         if(!s.isEmpty()){
@@ -144,17 +146,4 @@ public class SateliteServiceImpl implements SateliteService {
 
             return mensaje;
     }
-
-    private String[][] inicializarMatriz(List<Satelite> lista) {
-
-        String [][] matriz= new String[lista.size()][lista.get(0).getListaMessage().size()];
-
-        for (int i=0;i<lista.size();i++)
-            for( int j=0;j< lista.get(i).getListaMessage().size();j++){
-                matriz[i][j]=lista.get(i).getListaMessage().get(j);
-            }
-
-        return matriz;
-    }
-
 }

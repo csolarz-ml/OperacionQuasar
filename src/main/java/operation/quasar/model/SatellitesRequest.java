@@ -6,6 +6,9 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
+/**
+ * Se usa el modelo para request
+ */
 @Validated
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SatellitesRequest extends SatellitesRequestSplit{
