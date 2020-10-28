@@ -40,7 +40,7 @@ public class SateliteApiController implements SateliteApi {
 
     @Override
 
-    public ResponseEntity<PositionResponse> topsecret(@ApiParam(value = "object that needs to be added to the store", required = true)
+    public ResponseEntity<PositionResponse> topsecret(@ApiParam(value = "Se necesita enviar el request con los datos del satelite", required = true)
                                                       @Valid @RequestBody Satellites requestSatelites) {
 
         LOGGER.info("topsecret recibe: " + requestSatelites.toString());

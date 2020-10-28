@@ -1,6 +1,7 @@
 package operation.quasar.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @Validated
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@ApiModel(description = "Representation de la Clase Request Satelite")
 public class SatellitesRequest extends SatellitesRequestSplit{
 
     @ApiModelProperty("name")
