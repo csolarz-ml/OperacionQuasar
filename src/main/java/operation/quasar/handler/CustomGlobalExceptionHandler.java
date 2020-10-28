@@ -37,8 +37,9 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
         logger.error("error", ex);
         final Error error = new Error("No handler found for " + ex.getMessage());
 
+        final ApiError apiError = new ApiError("404", HttpStatus.NOT_FOUND, "no hay suficiente información");
 
-        final ApiError apiError = new ApiError("500", HttpStatus.INTERNAL_SERVER_ERROR, "no hay suficiente información");
+//        final ApiError apiError = new ApiError("500", HttpStatus.INTERNAL_SERVER_ERROR, "no hay suficiente información");
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
