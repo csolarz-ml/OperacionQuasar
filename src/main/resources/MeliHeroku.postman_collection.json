@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "f558e380-7154-4979-83cd-7f5c997e65ab",
+		"name": "MeliHeroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post topsecret Full",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"satellites\": [\r\n        {\r\n            \"name\": \"kenobi\",\r\n            \"distance\": 100.0,\r\n            \"message\": [\r\n                \"este\",                \"\",                \"\",                \"mensaje\",                \"\"\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"skywalker\",\r\n            \"distance\": 115.5,\r\n\"message\": [   \"\",               \"es\",                \"\",                \"\",                \"secreto\"            ]\r\n        },\r\n        {\r\n            \"name\": \"sato\",\r\n            \"distance\": 142.7,\r\n\"message\": [\r\n                \"este\",                \"\",               \"un\",               \"\",                \"\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://operacionquasar1.herokuapp.com/v2/topsecret",
+					"protocol": "https",
+					"host": [
+						"operacionquasar1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v2",
+						"topsecret"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post topsecret_split",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n            \"distance\": 500.0,\r\n            \"message\": [\r\n                \"este\",                \"\",                \"\",                \"mensaje\",                \"\"\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://operacionquasar1.herokuapp.com/v2/topsecret_split/kenobi",
+					"protocol": "https",
+					"host": [
+						"operacionquasar1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v2",
+						"topsecret_split",
+						"kenobi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get topsecret_split",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://operacionquasar1.herokuapp.com/v2/topsecret_split",
+					"protocol": "https",
+					"host": [
+						"operacionquasar1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v2",
+						"topsecret_split"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

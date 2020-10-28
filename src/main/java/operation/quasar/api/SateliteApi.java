@@ -37,7 +37,7 @@ public interface SateliteApi {
                                                @Valid @RequestBody Satellites requestSatelites);
 
 
-    @ApiOperation(value = "Agrego la distancia de un satelite", nickname = "Carga Satelite", notes = "", tags = {"topsecret_split",})
+    @ApiOperation(value = "Agrego la distancia de un satelite", nickname = "CargaSatelite", notes = "", tags = {"topsecret_split",})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "successful operation", response = PositionResponse.class),
             @ApiResponse(code = 404, message = "Satelite not found", response = ApiError.class)})
