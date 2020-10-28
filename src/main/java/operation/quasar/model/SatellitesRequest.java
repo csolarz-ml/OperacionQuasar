@@ -20,7 +20,7 @@ public class SatellitesRequest extends SatellitesRequestSplit{
     public SatellitesRequest() {
     }
 
-    public SatellitesRequest(Float distance, List<String> menssage) {
+    public SatellitesRequest(Double distance, List<String> menssage) {
         super(distance, menssage);
     }
 
@@ -28,7 +28,7 @@ public class SatellitesRequest extends SatellitesRequestSplit{
         super(menssage);
     }
 
-    public SatellitesRequest(Float distance) {
+    public SatellitesRequest(Double distance) {
         super(distance);
     }
 

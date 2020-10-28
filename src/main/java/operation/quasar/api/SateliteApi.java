@@ -27,7 +27,7 @@ public interface SateliteApi {
     ResponseEntity<PositionResponse> topsecretSplitGet();
 
 
-    @ApiOperation(value = "Se realiza la carga de las distancia de los satelites", nickname = "Carga Principal", notes = "", response = PositionResponse.class, tags = {"topsecret",})
+    @ApiOperation(value = "Se realiza la carga de los mensajes y distancias de los satelites", nickname = "Carga Principal", notes = "", response = PositionResponse.class, tags = {"topsecret",})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "successful operation", response = PositionResponse.class),
             @ApiResponse(code = 404, message = "Satelite not found", response = ApiError.class)})

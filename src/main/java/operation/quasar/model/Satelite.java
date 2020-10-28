@@ -20,7 +20,7 @@ public class Satelite {
     private String name = null;
 
     @ApiModelProperty("distance")
-    private Float distance = null;
+    private Double distance = null;
 
     @ApiModelProperty("message")
     private List<String> message = null;
@@ -28,7 +28,7 @@ public class Satelite {
     @ApiModelProperty("coordenada")
     private Coordenada coordenada;
 
-    public Satelite(Long id, String name, Float distance, List<String> menssage, Coordenada coordenada) {
+    public Satelite(Long id, String name, Double distance, List<String> menssage, Coordenada coordenada) {
         this.id = id;
         this.name = name;
         this.distance = distance;
@@ -52,11 +52,11 @@ public class Satelite {
         this.name = name;
     }
 
-    public Float getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(Float distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
@@ -80,7 +80,7 @@ public class Satelite {
     // input: distancia al emisor tal cual se recibe en cada satélite
     // output: las coordenadas ‘x’ e ‘y’ del emisor del mensaje
     func GetLocation(distances ...float32) (x, y float32)    * */
-    public Coordenada GetLocation(Float distance) {
+    public Coordenada GetLocation(Double distance) {
         return this.getCoordenada();
     }
 

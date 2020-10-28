@@ -12,7 +12,7 @@ public class SatellitesRequestSplit {
 
 
     @ApiModelProperty("distance")
-    private Float distance;
+    private Double distance;
 
     @ApiModelProperty("message")
     private List<String> message;
@@ -21,17 +21,17 @@ public class SatellitesRequestSplit {
 
     }
 
-    public SatellitesRequestSplit(Float distance, List<String> menssage) {
+    public SatellitesRequestSplit(Double distance, List<String> menssage) {
         this.distance = distance;
         this.message = menssage;
     }
 
 
-    public Float getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(Float distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
@@ -48,7 +48,7 @@ public class SatellitesRequestSplit {
         this.message = menssage;
     }
 
-    public SatellitesRequestSplit(Float distance) {
+    public SatellitesRequestSplit(Double distance) {
         this.distance = distance;
     }
 

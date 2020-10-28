@@ -10,29 +10,29 @@ import org.springframework.validation.annotation.Validated;
 public class Coordenada {
 
     @ApiModelProperty("id")
-    private Float x;
+    private Double x;
 
     @ApiModelProperty("id")
-    private Float y;
+    private Double y;
 
-    public Coordenada(Float x, Float y) {
+    public Coordenada(Double x, Double y) {
         this.x = x;
         this.y = y;
     }
 
-    public Float getX() {
+    public Double getX() {
         return x;
     }
 
-    public void setX(Float x) {
+    public void setX(Double x) {
         this.x = x;
     }
 
-    public Float getY() {
+    public Double getY() {
         return y;
     }
 
-    public void setY(Float y) {
+    public void setY(Double y) {
         this.y = y;
     }
 

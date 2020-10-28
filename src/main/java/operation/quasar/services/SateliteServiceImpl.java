@@ -36,7 +36,7 @@ public class SateliteServiceImpl implements SateliteService {
     }
 
     @Override
-    public Coordenada getLocation(List<Float> distancias) {
+    public Coordenada getLocation(List<Double> distancias) {
         LOGGER.info("getLocation recibe: " + distancias.toString());
 
         //setea las  distancias a los satelites
@@ -52,10 +52,12 @@ public class SateliteServiceImpl implements SateliteService {
     public Coordenada getUbicacion(List<Satelite> lista) {
         LOGGER.info("getUbicacion recibe: " + lista.toString());
 
-        Float A = 2 * lista.get(1).getCoordenada().getX() - 2 * lista.get(0).getCoordenada().getX();
-        Float B = 2 * lista.get(1).getCoordenada().getY() - 2 * lista.get(0).getCoordenada().getY();
+        Double A = 2 * lista.get(1).getCoordenada().getX() - 2 * lista.get(0).getCoordenada().getX();
+//        Double A =Math. 2 * lista.get(1).getCoordenada().getX() - 2 * lista.get(0).getCoordenada().getX();
 
-        Float C = new Float(Math.pow(lista.get(0).getDistance(), 2) -
+        Double B = 2 * lista.get(1).getCoordenada().getY() - 2 * lista.get(0).getCoordenada().getY();
+
+        Double C = new Double(Math.pow(lista.get(0).getDistance(), 2) -
                 Math.pow(lista.get(1).getDistance(), 2) -
                 Math.pow(lista.get(0).getCoordenada().getX(), 2) +
 
@@ -63,11 +65,11 @@ public class SateliteServiceImpl implements SateliteService {
                 Math.pow(lista.get(0).getCoordenada().getY(), 2) +
                 Math.pow(lista.get(1).getCoordenada().getY(), 2));
 
-        Float D = 2 * lista.get(2).getCoordenada().getX() - 2 * lista.get(1).getCoordenada().getX();
+        Double D = 2 * lista.get(2).getCoordenada().getX() - 2 * lista.get(1).getCoordenada().getX();
 
-        Float E = 2 * lista.get(2).getCoordenada().getY() - 2 * lista.get(1).getCoordenada().getY();
+        Double E = 2 * lista.get(2).getCoordenada().getY() - 2 * lista.get(1).getCoordenada().getY();
 
-        Float F = new Float(Math.pow(lista.get(1).getDistance(), 2) -
+        Double F = new Double(Math.pow(lista.get(1).getDistance(), 2) -
                 Math.pow(lista.get(2).getDistance(), 2) -
                 Math.pow(lista.get(1).getCoordenada().getX(), 2) +
 
@@ -75,9 +77,13 @@ public class SateliteServiceImpl implements SateliteService {
                 Math.pow(lista.get(1).getCoordenada().getY(), 2) +
                 Math.pow(lista.get(2).getCoordenada().getY(), 2));
 
-        Float x = (C * E - F * B) / (E * A - B * D);
-        Float y = (C * D - A * F) / (B * D - A * E);
+        Double x = (C * E - F * B) / (E * A - B * D);
+        Double y = (C * D - A * F) / (B * D - A * E);
 
+        if (Double.isNaN(x) || Double.isNaN(y)){
+            x=0.0;
+            y=0.0;
+        }
 
         Coordenada coordenada = new Coordenada(x, y);
         return coordenada;
@@ -115,7 +121,7 @@ public class SateliteServiceImpl implements SateliteService {
     }
 
     @Override
-    public void updatSatelite(String name, Float distance, List<String> message) {
+    public void updatSatelite(String name, Double distance, List<String> message) {
         Satelite satelite=sateliteRepository.getSateliteByName(name);
         satelite.setMessage(message);
         satelite.setDistance(distance);

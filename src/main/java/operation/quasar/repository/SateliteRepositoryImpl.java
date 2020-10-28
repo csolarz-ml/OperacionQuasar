@@ -26,7 +26,7 @@ public class SateliteRepositoryImpl implements SateliteRepository {
 
         Long id = 1L;
         String nombre = "Kenobi";
-        Coordenada coordenada = new Coordenada(-500.0F, -200.0F);
+        Coordenada coordenada = new Coordenada(-500.0, -200.0);
         Satelite satelite = new Satelite(id, nombre, null, null, coordenada);
 
         return satelite;
@@ -36,7 +36,7 @@ public class SateliteRepositoryImpl implements SateliteRepository {
 
         Long id = 2L;
         String nombre = "Sato";
-        Coordenada coordenada = new Coordenada(500.0F, 100.0F);
+        Coordenada coordenada = new Coordenada(500.0, 100.0);
         Satelite satelite = new Satelite(id, nombre, null, null, coordenada);
 
         return satelite;
@@ -47,7 +47,7 @@ public class SateliteRepositoryImpl implements SateliteRepository {
 
         Long id = 3L;
         String nombre = "Skywalker";
-        Coordenada coordenada = new Coordenada(100F, -100F);
+        Coordenada coordenada = new Coordenada(100.0, -100.0);
         Satelite satelite = new Satelite(id, nombre, null, null, coordenada);
 
         return satelite;
@@ -76,7 +76,7 @@ public class SateliteRepositoryImpl implements SateliteRepository {
     @Override
     public void update(Satelite satelite) {
         for (Satelite s: this.satelites ) {
-            if(s.getName().equalsIgnoreCase(s.getName())){
+            if(s.getId().equals(satelite.getId())){
                 satelites.remove(s);
                 break;
             }

@@ -14,7 +14,7 @@ public interface SateliteService {
 
     Satelite getSateliteByName(String name);
 
-    Coordenada getLocation(List<Float> distancias);
+    Coordenada getLocation(List<Double> distancias);
 
     Coordenada getUbicacion(List<Satelite> allSatellite);
 
@@ -22,5 +22,5 @@ public interface SateliteService {
 
     String getMensajeSatelites(List<Satelite> allSatelite);
 
-    void updatSatelite(String name, Float distance, List<String> message);
+    void updatSatelite(String name, Double distance, List<String> message);
 }
